@@ -1,0 +1,28 @@
+body {
+    font-family: 'Roboto Slab', serif;
+}
+
+canvas {
+    border: 2px solid black;
+}
+
+.btn-label {
+    position: relative;
+    left: -10px;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: inherit;
+}
