@@ -40,22 +40,32 @@
                         <inc-resource-button resource="potatoz" by="1">Make Potato</inc-resource-button>
                         <per-second resource="potatoz" display="Potatoz"></per-second>
                         <trade-resource :resource="db.resources.patches" v-if="db.resources.patches.unlocked"></trade-resource>
+                        <trade-resource :resource="db.resources.farms" v-if="db.resources.farms.unlocked"></trade-resource>
                         <trade-resource :resource="db.resources.potatoMud" v-if="db.resources.potatoMud.unlocked"></trade-resource>
                         <trade-resource :resource="db.resources.potatoHuts" v-if="db.resources.potatoHuts.unlocked"></trade-resource>
                         <trade-resource :resource="db.resources.potatainers" v-if="db.resources.potatainers.unlocked"></trade-resource>
-                    </div>
-                    <div class="tab-pane fade w3-padding" id="projects">
-                        <project-list :projects="db.projects" :project-key="db.projectKey"></project-list>
                     </div>
                     <div class="tab-pane fade w3-padding" id="brain">
                         <h3>Brain:</h3>
                         <trade-resource :resource="db.resources.iq" v-if="db.resources.iq.unlocked"></trade-resource>
                         <per-second resource="thoughts" display="Thoughts" v-if="db.resources.thoughts.unlocked"></per-second>
                         <h3>Resources:</h3>
+                        <trade-all :resource="db.convertAlls.thoughts"></trade-all>
+                        <trade-slider :resource="db.tradeSliders.thoughts"></trade-slider>
                         <trade-resource :resource="db.resources.creativity" v-if="db.resources.creativity.unlocked"></trade-resource>
                         <trade-resource :resource="db.resources.ideas" v-if="db.resources.ideas.unlocked"></trade-resource>
                     </div>
+                    <div class="tab-pane fade w3-padding" id="advanced-resources">
+                        <trade-resource :resource="db.resources.clay" v-if="db.resources.clay.unlocked"></trade-resource>
+                    </div>
+                    <div class="tab-pane fade w3-padding" id="buildings">
+                        <building :building="db.buildings.compostBins"></building>
+                    </div>
                 </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>Projects:</h3>
+                <project-list :projects="db.projects" :project-key="db.projectKey"></project-list>
             </div>
         </div>
     </div>

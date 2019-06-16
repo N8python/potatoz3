@@ -1,3 +1,4 @@
+import getProp from "./get-prop.js";
 export default {
     props: ["resource"],
     template: `
@@ -34,27 +35,12 @@ export default {
             }
         },
         getMessage() {
-            function getProp(obj, str) {
-                const [propName, rest] = str.split(".");
-                if (rest) {
-                    return getProp(obj[propName], rest);
-                }
-                return obj[propName];
-            }
-
             return this.resource.messageStr.replace(/\{\{([A-Za-z$_.]+)\}\}/g, (_, p1) => {
                 console.log(p1);
                 return getProp(this.resource.from, p1);
             });
         },
         getBoostMessage() {
-            function getProp(obj, str) {
-                const [propName, rest] = str.split(".");
-                if (rest) {
-                    return getProp(obj[propName], rest);
-                }
-                return obj[propName];
-            }
             if (this.resource.boostStr) {
                 return this.resource.boostStr.replace(/\{\{([A-Za-z$_.*]+)\}\}/g, (_, p1) => {
                     if (p1 === "**p") {
